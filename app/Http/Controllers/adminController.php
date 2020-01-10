@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+
 use DB;
 class adminController extends Controller
 {
@@ -13,7 +15,13 @@ class adminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        if(Auth::check() && Auth::user()->is_admin){
+            return view('admin');
+            
+        }else {
+            return view('auth.login');
+
+        }
     }
 
     /**

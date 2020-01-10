@@ -82,7 +82,7 @@
                 width:700px;height:420px;
                
 }
-@media screen and (max-width: 375px){
+@media screen and (max-width: 400px){
     .compte,.annonce{
         width: 280px;   
         margin-bottom: 17px;

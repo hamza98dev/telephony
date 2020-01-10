@@ -31,6 +31,7 @@
                 <a style="  font-family: 'Montserrat', sans-serif;" class="nav-link mx-2 text-dark" href="{{url('/emails')}}"><i class="fas fa-sms"></i> Emails</a>
             </li>
           @endif
+        
         <li class="nav-item dropdown">
 
           <a style="  font-family: 'Montserrat', sans-serif;" class="nav-link dropdown-toggle  mx-2 text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,22 +46,24 @@
 
             @if (Auth::check())
             <a class="dropdown-item" href="/register"> <i class="fa fa-user"></i> Mon Compte</a>
-            <a class="dropdown-item" href="{{ route('logout') }}"><i class="fas fa-sign-out-alt"></i>  Logout</a>
+            <a class="dropdown-item" href="{{ route('logout') }}"><i class="fas fa-sign-out-alt"></i> Se Deconnecter</a>
 
             @else
-              <a class="dropdown-item" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
-              <a class="dropdown-item" href="/register"><i class="fas fa-arrow-right"></i> Register</a>
+              <a class="dropdown-item" href="/login"><i class="fas fa-sign-in-alt"></i> Se Connecter</a>
+              <a class="dropdown-item" href="/register"><i class="fas fa-arrow-right"></i> S'inscrire</a>
 
 
 
             @endif
+          
 
 
 
           </div>
+
         </li>
       </ul>
-
+   
     </div>
 
 

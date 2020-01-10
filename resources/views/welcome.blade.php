@@ -76,10 +76,15 @@ img{
   height: 350px;
   margin-left: 50px;
 }
+@media screen and (max-width: 375px){
+.z{
+  height: 900px;
+}
+}
 </style>
 @section('content')
 
-  <div style=" height:600px ;background-image:url(https://res.cloudinary.com/practicaldev/image/fetch/s--chSFwWFH--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/izwiuokylo3m0g4utn88.png);background-size:cover;background-repeat:no-repeat;background-position:center" class="row">
+  <div style=" height:600px ;background-image:url(https://res.cloudinary.com/practicaldev/image/fetch/s--chSFwWFH--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/izwiuokylo3m0g4utn88.png);background-size:cover;background-repeat:no-repeat;background-position:center" class="row z">
     <div style="margin-top: 200px;"  class="col-md-12 text-center">
       <h1 style="font-weight: bold;font-family: 'El Messiri', serif;" class="animated slideInLeft slow ">بيع و شري تلفون لي بغيتي</h1>
       <a href="{{url('/annoncesshow')}}" style="text-decoration: none"><button  class=" edd btn-lg animated flipInX slow my-3"> <i class="fa fa-shopping-bag" aria-hidden="true"></i> ANNONCES</button></a>

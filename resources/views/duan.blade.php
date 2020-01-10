@@ -35,8 +35,10 @@
                  display: flex;
                 align-items: center;
                 justify-content: center;
-                background: white;position:absolute;
-                width:700px;height:700px;
+                background: white;
+                position:absolute;
+                width:100%;
+                height:100%;
                
 }
 @media screen and (max-width: 348px) {

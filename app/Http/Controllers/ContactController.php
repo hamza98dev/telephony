@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Contact;
+use Auth;
 class ContactController extends Controller
 {
     /**
@@ -13,14 +14,13 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('emails');
-    }
+        if(Auth::check() && Auth::user()->is_admin){
+        return view('emails');}else {
+            return view('auth.login');
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        }
+    }
+   
     public function create()
     {
         $messages=DB::select('select * from contacts');

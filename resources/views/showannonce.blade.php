@@ -74,8 +74,11 @@ background-color: lightgoldenrodyellow;
     <img :src="it.photo_article" style="max-height:250px;max-width:100%"  class="card-img-top justify-content-center embed-responsive-item" alt="...">
     <div class="card-body d-flex flex-column">
       <h5 class="card-title">@{{it.nom_article}}</h5 >
+        <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true"></i> @{{it.ville_article}}</p>
       <h4 class="text-center mt-auto" style="color:purple;font-weight: 550">@{{it.prix_article  }} DH</h4>
       <a style="border: 1px solid lightgray;" href="#" data-toggle="modal" data-target="#exampleModal" @click="getinfo(it.id)" class="btn lk mt-auto"><i class="far fa-eye"></i> Voir</a>
+            
+
     </div>
   </div>
 </div>
@@ -125,8 +128,10 @@ background-color: lightgoldenrodyellow;
       <div class="card-header" style="text-align: center">@{{us.name}}</div>
         <div class="card-body">
         <h3 class="card-title"><i class="fa fa-phone" aria-hidden="true"></i> @{{us.telephone}}</h3>
-        <p class="card-text"> <i class="fa fa-envelope" aria-hidden="true"></i> @{{us.email}}</p>
         <p class="card-text"><i class="fa fa-map-marker" aria-hidden="true"></i> @{{item.ville_article}}</p>
+
+        <p class="card-text"> <i class="fa fa-envelope" aria-hidden="true"></i> @{{us.email}}</p>
+        
 
         </div>
       </div>

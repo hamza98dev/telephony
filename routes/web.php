@@ -26,3 +26,4 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/dashboard','adminController@index');
 Route::get('/emails','ContactController@index');
 
+
