@@ -143,75 +143,75 @@ background-color: lightgoldenrodyellow;
   </div>
 </div>
 </div>
-
-@endsection
-@section('js')
 <script>
 
-    window.laravel = {!! json_encode([
-        'csrfToken' => csrf_token(),
-        'url' => url('/'),  
-    ]) !!};
+  window.laravel = {!! json_encode([
+      'csrfToken' => csrf_token(),
+      'url' => url('/'),  
+  ]) !!};
 </script>
 
 
-    <script>
-    new Vue({
-        el:'#app',
-        data:{
-          phones:[],
-          detail:[],
-          utilisateur:[],
-          status:false,
-          search:'',
-          mf:'',
-          favstats:false,
-          affno:false,
-          ville:'',
+  <script>
+  new Vue({
+      el:'#app',
+      data:{
+        phones:[],
+        detail:[],
+        utilisateur:[],
+        status:false,
+        search:'',
+        mf:'',
+        favstats:false,
+        affno:false,
+        ville:'',
+      },
+      methods:{
+        getphones(){
+          axios.get('/api/gd')
+          .then(res=>{
+               this.phones=res.data;
+               console.log(this.phones);
+                if (this.phones.length == 0) {
+                  this.affno=!this.affno;
+                }
+          })
         },
-        methods:{
-          getphones(){
-            axios.get('/api/gd')
-            .then(res=>{
-                 this.phones=res.data;
-                 console.log(this.phones);
-                  if (this.phones.length == 0) {
-                    this.affno=!this.affno;
-                  }
+        getinfo(id){
+          console.log(id);
+
+          axios.get('/api/mdl/'+id)
+          .then(res =>{
+
+            this.utilisateur=res.data.user;
+            this.detail=res.data.thisphone;
+            console.log(this.detail);
+            console.log(this.utilisateur);
+
+
+
+
+
+          })
+
+        },
+  
+      },
+      mounted(){
+        this.getphones();
+      },
+      computed:{
+          filtrephone(){
+            return this.phones.filter(phone =>{
+              return phone.nom_article.match(this.search.toLowerCase()) && phone.ville_article.match(this.ville) && phone.marque.match(this.mf);
             })
           },
-          getinfo(id){
-            console.log(id);
+          
+      }
 
-            axios.get('/api/mdl/'+id)
-            .then(res =>{
-
-              this.utilisateur=res.data.user;
-              this.detail=res.data.thisphone;
-              console.log(this.detail);
-              console.log(this.utilisateur);
+  })
+  </script>
 
 
-
-
-
-            })
-
-          },
-    
-        },
-        mounted(){
-          this.getphones();
-        },
-        computed:{
-            filtrephone(){
-              return this.phones.filter(phone =>{
-                return phone.nom_article.match(this.search.toLowerCase()) && phone.ville_article.match(this.ville) && phone.marque.match(this.mf);
-              })
-            },
-            
-        }
-
-    })
-    </script>
 @endsection
+
